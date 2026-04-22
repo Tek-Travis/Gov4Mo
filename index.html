@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Travis John Richard for Missouri</title>
+  <style>
+    :root{
+      --bg:#111111;
+      --panel:#1d1d1d;
+      --panel2:#242424;
+      --text:#ffffff;
+      --muted:#e7e7e7;
+      --green:#228B22;
+      --shadow:0 18px 42px rgba(0,0,0,.52);
+      --shadow2:0 10px 28px rgba(0,0,0,.36);
+      --radius:24px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Arial,Helvetica,sans-serif;
+      color:var(--text);
+      min-height:100vh;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.58), rgba(0,0,0,.66)),
+        url('RICHARD4GOV-LARGE.png') center center / cover no-repeat fixed;
+    }
+    .wrap{
+      position:relative;
+      z-index:1;
+      width:min(1200px, calc(100% - 24px));
+      margin:0 auto;
+    }
+    header{
+      padding:14px 0 10px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns:minmax(110px, 150px) minmax(0, 1fr) minmax(260px, 360px);
+      gap:16px;
+      align-items:start;
+    }
+    .logo-block{
+      background:rgba(0,0,0,.18);
+      backdrop-filter:blur(4px);
+      border-radius:22px;
+      padding:10px;
+      box-shadow:var(--shadow2);
+    }
+    .logo-block img{
+      display:block;
+      width:100%;
+      height:auto;
+      border-radius:16px;
+    }
+    .title-block{
+      padding:12px 0 0;
+      text-shadow:0 5px 14px rgba(0,0,0,.85);
+      min-width:0;
+    }
+    .title-strip{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:8px 14px;
+      border-radius:999px;
+      background:linear-gradient(90deg, rgba(34,139,34,.96), rgba(34,139,34,.72));
+      color:#fff;
+      font-weight:700;
+      letter-spacing:.4px;
+      box-shadow:var(--shadow2);
+      margin-bottom:12px;
+    }
+    .title-block h1{
+      margin:0;
+      font-size:clamp(2rem, 4.8vw, 4rem);
+      line-height:1.05;
+      font-weight:900;
+    }
+    .title-block p{
+      margin:10px 0 0;
+      color:var(--muted);
+      line-height:1.65;
+      max-width:68ch;
+      font-size:clamp(.98rem, 1.2vw, 1.08rem);
+    }
+    .profile-card{
+      background:rgba(0,0,0,.22);
+      border-radius:26px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      min-width:0;
+    }
+    .profile-card img{
+      width:100%;
+      display:block;
+      height:auto;
+    }
+    .profile-copy{
+      padding:16px 18px 18px;
+      text-shadow:0 4px 10px rgba(0,0,0,.7);
+    }
+    .profile-copy .mini-strip{
+      display:inline-block;
+      padding:7px 14px;
+      border-radius:999px;
+      background:rgba(34,139,34,.96);
+      font-size:1rem;
+      margin-bottom:12px;
+      font-weight:900;
+    }
+    .profile-copy h2{
+      margin:0 0 8px;
+      font-size:1.45rem;
+      font-weight:900;
+    }
+    .profile-copy p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.65;
+      font-size:1rem;
+    }
+    main{
+      padding: 8px 0 42px;
+    }
+    .section-shell{
+      background:rgba(10,10,10,.18);
+      border-radius:28px;
+      padding:18px;
+      box-shadow:var(--shadow2);
+      backdrop-filter: blur(2px);
+    }
+    .section-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:end;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-bottom:14px;
+    }
+    .section-head h3{
+      margin:0;
+      font-size:1.5rem;
+      text-shadow:0 4px 12px rgba(0,0,0,.75);
+    }
+    .section-head span{
+      color:var(--muted);
+      font-size:.95rem;
+    }
+    .issues{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:12px;
+    }
+    .issue-btn{
+      width:100%;
+      border:none;
+      border-radius:20px;
+      background:var(--panel);
+      color:#fff;
+      padding:14px 15px;
+      box-shadow:var(--shadow2);
+      cursor:pointer;
+      text-align:left;
+      transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .issue-btn:hover{
+      transform:translateY(-2px);
+      box-shadow:var(--shadow);
+      background:var(--panel2);
+    }
+    .issue-top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+    }
+    .issue-ribbon{
+      display:inline-flex;
+      align-items:center;
+      padding:7px 11px;
+      border-radius:999px;
+      background:rgba(34,139,34,.95);
+      color:#fff;
+      font-weight:700;
+      font-size:.88rem;
+      flex:0 0 auto;
+    }
+    .issue-title{
+      margin:0;
+      font-size:1rem;
+      line-height:1.25;
+      font-weight:700;
+      text-shadow:0 3px 10px rgba(0,0,0,.75);
+      flex:1 1 auto;
+      min-width:0;
+    }
+    .issue-chev{
+      font-size:1.15rem;
+      opacity:.95;
+      transition:transform .25s ease;
+      flex:0 0 auto;
+    }
+    .issue-btn.active .issue-chev{
+      transform:rotate(180deg);
+    }
+    .issue-body{
+      max-height:0;
+      overflow:hidden;
+      opacity:0;
+      transition:max-height .34s ease, opacity .24s ease, margin-top .24s ease;
+    }
+    .issue-body.open{
+      opacity:1;
+      margin-top:12px;
+    }
+    .issue-card{
+      background:var(--panel2);
+      border-radius:18px;
+      padding:15px;
+    }
+    .issue-card h4{
+      margin:0 0 8px;
+      font-size:1.08rem;
+      text-shadow:0 3px 10px rgba(0,0,0,.75);
+    }
+    .issue-card p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.7;
+      font-size:.98rem;
+    }
+    footer{
+      padding:18px 0 34px;
+      color:var(--muted);
+      text-align:center;
+      text-shadow:0 2px 8px rgba(0,0,0,.45);
+    }
+    @media (max-width: 980px){
+      .hero-grid{
+        grid-template-columns:minmax(110px, 130px) minmax(0, 1fr);
+      }
+      .profile-card{
+        grid-column:1 / -1;
+      }
+      .issues{
+        grid-template-columns:1fr;
+      }
+    }
+    @media (max-width: 640px){
+      body{
+        background-attachment:scroll;
+      }
+      .hero-grid{
+        grid-template-columns:1fr;
+      }
+      .logo-block{
+        max-width:120px;
+      }
+      .title-block{
+        padding-top:0;
+      }
+      .section-shell{
+        padding:14px;
+        border-radius:22px;
+      }
+      .issue-top{
+        align-items:flex-start;
+      }
+      .issue-ribbon{
+        margin-top:1px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap hero-grid">
+      <div class="logo-block">
+        <img src="RICHARD4GOV-LARGE.png" alt="RICHARD4GOV logo">
+      </div>
+      <div class="title-block">
+        <div class="title-strip">Travis John Richard for Missouri</div>
+        <h1>Building a stronger, fairer, more secure Missouri.</h1>
+        <p>This campaign is focused on lifting Missourians out of poverty, reducing government waste, strengthening farms and food security, modernizing schools and state services, and reforming taxes so families keep more of what they earn.</p>
+      </div>
+      <div class="profile-card">
+        <img src="TRAVIS JOHN RICHARD.png" alt="Travis John Richard profile picture">
+        <div class="profile-copy">
+          <div class="mini-strip">Candidate Profile</div>
+          <h2>About Travis John Richard</h2>
+          <p>Missouri candidate focused on practical, people-first reform for working families, farmers, children, and communities.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="section-shell">
+      <div class="section-head">
+        <h3>Top 5 Priorities</h3>
+        <span>Click any issue to expand, click again to collapse.</span>
+      </div>
+      <div class="issues">
+        <button class="issue-btn" type="button">
+          <div class="issue-top">
+            <span class="issue-ribbon">1</span>
+            <span class="issue-title">Lifting Missourians Out of Poverty</span>
+            <span class="issue-chev">⌄</span>
+          </div>
+          <div class="issue-body">
+            <div class="issue-card">
+              <h4>Lifting Missourians Out of Poverty</h4>
+              <p>No one working full time in Missouri should be trapped by a tax system that keeps them behind. I will push for a system that protects the bottom 50% of earners, shifts the burden upward to those who can truly afford it, and uses the savings to strengthen families, schools, and local communities.</p>
+            </div>
+          </div>
+        </button>
+
+        <button class="issue-btn" type="button">
+          <div class="issue-top">
+            <span class="issue-ribbon">2</span>
+            <span class="issue-title">Reducing State Government</span>
+            <span class="issue-chev">⌄</span>
+          </div>
+          <div class="issue-body">
+            <div class="issue-card">
+              <h4>Reducing State Government</h4>
+              <p>State government should be smaller, simpler, and more accountable. I will cut waste, reduce duplication, and streamline departments so more money stays with taxpayers and more services actually reach the people who need them.</p>
+            </div>
+          </div>
+        </button>
+
+        <button class="issue-btn" type="button">
+          <div class="issue-top">
+            <span class="issue-ribbon">3</span>
+            <span class="issue-title">Boosting Farms, Farmers, and Food Security</span>
+            <span class="issue-chev">⌄</span>
+          </div>
+          <div class="issue-body">
+            <div class="issue-card">
+              <h4>Boosting Farms, Farmers, and Food Security</h4>
+              <p>Missouri farmers feed Missouri families, and they deserve protection, not extra burdens. I will support farm biosecurity, fair treatment for local producers, and policies that strengthen the safety and stability of our food supply.</p>
+            </div>
+          </div>
+        </button>
+
+        <button class="issue-btn" type="button">
+          <div class="issue-top">
+            <span class="issue-ribbon">4</span>
+            <span class="issue-title">Digital Governance and Schools</span>
+            <span class="issue-chev">⌄</span>
+          </div>
+          <div class="issue-body">
+            <div class="issue-card">
+              <h4>Digital Governance and Schools</h4>
+              <p>Missouri should modernize. I will push for digital government services that are faster and easier to use, and a long-term path to digital schools that prepare students for the real world while improving access and efficiency.</p>
+            </div>
+          </div>
+        </button>
+
+        <button class="issue-btn" type="button">
+          <div class="issue-top">
+            <span class="issue-ribbon">5</span>
+            <span class="issue-title">Sales Tax Reform and Child Birth Fund</span>
+            <span class="issue-chev">⌄</span>
+          </div>
+          <div class="issue-body">
+            <div class="issue-card">
+              <h4>Sales Tax Reform and Child Birth Fund</h4>
+              <p>Families should not pay tax on food, diapers, or gas. I also support a Child Birth Fund that gives every newborn a $25,000 tax-free check to help Missouri families start strong and build a better future.</p>
+            </div>
+          </div>
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">Travis John Richard for Missouri</footer>
+
+  <script>
+    const buttons = document.querySelectorAll('.issue-btn');
+    function closeAll(except = null){
+      buttons.forEach(btn => {
+        if(btn === except) return;
+        btn.classList.remove('active');
+        const body = btn.querySelector('.issue-body');
+        body.classList.remove('open');
+        body.style.maxHeight = '0px';
+      });
+    }
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const body = btn.querySelector('.issue-body');
+        const open = btn.classList.contains('active');
+        if(open){
+          btn.classList.remove('active');
+          body.classList.remove('open');
+          body.style.maxHeight = '0px';
+          return;
+        }
+        closeAll(btn);
+        btn.classList.add('active');
+        body.classList.add('open');
+        body.style.maxHeight = body.scrollHeight + 'px';
+      });
+    });
+    window.addEventListener('resize', () => {
+      document.querySelectorAll('.issue-btn.active .issue-body').forEach(body => {
+        body.style.maxHeight = body.scrollHeight + 'px';
+      });
+    });
+  </script>
+</body>
+</html>
