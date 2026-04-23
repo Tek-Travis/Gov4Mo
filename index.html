@@ -15,10 +15,8 @@
       --shadow:0 18px 42px rgba(0,0,0,.52);
       --shadow2:0 10px 28px rgba(0,0,0,.36);
     }
-
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-
     body{
       margin:0;
       font-family:Arial,Helvetica,sans-serif;
@@ -28,25 +26,19 @@
         linear-gradient(180deg, rgba(0,0,0,.58), rgba(0,0,0,.66)),
         url('RICHARD4GOV-LARGE2.png') center center / cover no-repeat fixed;
     }
-
     .wrap{
       position:relative;
       z-index:1;
       width:min(1200px, calc(100% - 24px));
       margin:0 auto;
     }
-
-    header{
-      padding:14px 0 10px;
-    }
-
+    header{padding:14px 0 10px;}
     .hero-grid{
       display:grid;
       grid-template-columns:minmax(110px,150px) minmax(0,1fr) minmax(260px,360px);
       gap:16px;
       align-items:start;
     }
-
     .logo-block{
       background:rgba(0,0,0,.18);
       backdrop-filter:blur(4px);
@@ -54,271 +46,42 @@
       padding:10px;
       box-shadow:var(--shadow2);
     }
-
-    .logo-block img{
-      display:block;
-      width:100%;
-      height:auto;
-      border-radius:16px;
-    }
-
-    .title-block{
-      padding:12px 0 0;
-      text-shadow:0 5px 14px rgba(0,0,0,.85);
-      min-width:0;
-    }
-
-    .title-strip{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:8px 14px;
-      border-radius:999px;
-      background:linear-gradient(90deg, var(--accent), color-mix(in srgb, var(--accent) 70%, black));
-      color:var(--text);
-      font-weight:700;
-      letter-spacing:.4px;
-      box-shadow:var(--shadow2);
-      margin-bottom:12px;
-    }
-
-    .title-block h1{
-      margin:0;
-      font-size:clamp(2rem,4.8vw,4rem);
-      line-height:1.05;
-      font-weight:900;
-    }
-
-    .title-block p{
-      margin:10px 0 0;
-      color:var(--muted);
-      line-height:1.7;
-      max-width:68ch;
-      font-size:clamp(.98rem,1.2vw,1.08rem);
-    }
-
-    .profile-card{
-      background:rgba(0,0,0,.22);
-      border-radius:26px;
-      overflow:hidden;
-      box-shadow:var(--shadow);
-      min-width:0;
-    }
-
-    .profile-card img{
-      width:100%;
-      display:block;
-      height:auto;
-    }
-
-    .profile-copy{
-      padding:16px 18px 18px;
-      text-shadow:0 4px 10px rgba(0,0,0,.7);
-    }
-
-    .profile-copy .mini-strip{
-      display:inline-block;
-      padding:7px 14px;
-      border-radius:999px;
-      background:var(--accent);
-      font-size:1rem;
-      margin-bottom:12px;
-      font-weight:900;
-      color:var(--text);
-    }
-
-    .profile-copy h2{
-      margin:0 0 8px;
-      font-size:1.45rem;
-      font-weight:900;
-    }
-
-    .profile-copy p{
-      margin:0;
-      color:var(--muted);
-      line-height:1.7;
-      font-size:1rem;
-    }
-
-    main{
-      padding:8px 0 42px;
-    }
-
-    .section-shell{
-      background:rgba(10,10,10,.18);
-      border-radius:28px;
-      padding:18px;
-      box-shadow:var(--shadow2);
-      backdrop-filter:blur(2px);
-    }
-
-    .section-head{
-      display:flex;
-      justify-content:space-between;
-      align-items:end;
-      gap:12px;
-      flex-wrap:wrap;
-      margin-bottom:14px;
-    }
-
-    .section-head h3{
-      margin:0;
-      font-size:1.5rem;
-      text-shadow:0 4px 12px rgba(0,0,0,.75);
-    }
-
-    .section-head span{
-      color:var(--muted);
-      font-size:.95rem;
-    }
-
-    .issues{
-      display:grid;
-      grid-template-columns:1fr;
-      gap:12px;
-    }
-
-    .issue-btn{
-      width:100%;
-      border:none;
-      border-radius:20px;
-      background:var(--panel);
-      color:var(--text);
-      padding:14px 15px;
-      box-shadow:var(--shadow2);
-      cursor:pointer;
-      text-align:left;
-      transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
-    }
-
-    .issue-btn:hover{
-      transform:translateY(-2px);
-      box-shadow:var(--shadow);
-      background:var(--panel2);
-    }
-
-    .issue-top{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-    }
-
-    .issue-ribbon{
-      display:inline-flex;
-      align-items:center;
-      padding:7px 11px;
-      border-radius:999px;
-      background:var(--accent);
-      color:var(--text);
-      font-weight:700;
-      font-size:.88rem;
-      flex:0 0 auto;
-    }
-
-    .issue-title{
-      margin:0;
-      font-size:1rem;
-      line-height:1.3;
-      font-weight:700;
-      text-shadow:0 3px 10px rgba(0,0,0,.75);
-      flex:1 1 auto;
-      min-width:0;
-    }
-
-    .issue-chev{
-      font-size:1.15rem;
-      opacity:.95;
-      transition:transform .25s ease;
-      flex:0 0 auto;
-    }
-
-    .issue-btn.active .issue-chev{
-      transform:rotate(180deg);
-    }
-
-    .issue-body{
-      max-height:0;
-      overflow:hidden;
-      opacity:0;
-      transition:max-height .34s ease, opacity .24s ease, margin-top .24s ease;
-    }
-
-    .issue-body.open{
-      opacity:1;
-      margin-top:12px;
-    }
-
-    .issue-card{
-      background:var(--panel2);
-      border-radius:18px;
-      padding:15px;
-    }
-
-    .issue-card h4{
-      margin:0 0 8px;
-      font-size:1.08rem;
-      text-shadow:0 3px 10px rgba(0,0,0,.75);
-    }
-
-    .issue-card p{
-      margin:0;
-      color:var(--muted);
-      line-height:1.7;
-      font-size:.98rem;
-    }
-
-    footer{
-      padding:18px 0 34px;
-      color:var(--muted);
-      text-align:center;
-      text-shadow:0 2px 8px rgba(0,0,0,.45);
-    }
-
-    @media (max-width:980px){
-      .hero-grid{
-        grid-template-columns:minmax(110px,130px) minmax(0,1fr);
-      }
-
-      .profile-card{
-        grid-column:1 / -1;
-      }
-
-      .issues{
-        grid-template-columns:1fr;
-      }
-    }
-
-    @media (max-width:640px){
-      body{
-        background-attachment:scroll;
-      }
-
-      .hero-grid{
-        grid-template-columns:1fr;
-      }
-
-      .logo-block{
-        max-width:120px;
-      }
-
-      .title-block{
-        padding-top:0;
-      }
-
-      .section-shell{
-        padding:14px;
-        border-radius:22px;
-      }
-
-      .issue-top{
-        align-items:flex-start;
-      }
-
-      .issue-ribbon{
-        margin-top:1px;
-      }
-    }
+    .logo-block img{display:block;width:100%;height:auto;border-radius:16px;}
+    .title-block{padding:12px 0 0;text-shadow:0 5px 14px rgba(0,0,0,.85);min-width:0;}
+    .title-strip{display:inline-flex;align-items:center;gap:10px;padding:8px 14px;border-radius:999px;background:linear-gradient(90deg, var(--accent), color-mix(in srgb, var(--accent) 72%, black));color:var(--text);font-weight:700;letter-spacing:.4px;box-shadow:var(--shadow2);margin-bottom:12px;}
+    .title-block h1{margin:0;font-size:clamp(2rem,4.8vw,4rem);line-height:1.05;font-weight:900;}
+    .title-block p{margin:10px 0 0;color:var(--muted);line-height:1.7;max-width:68ch;font-size:clamp(.98rem,1.2vw,1.08rem);}
+    .profile-card{background:rgba(0,0,0,.22);border-radius:26px;overflow:hidden;box-shadow:var(--shadow);min-width:0;}
+    .profile-card img{width:100%;display:block;height:auto;}
+    .profile-copy{padding:16px 18px 18px;text-shadow:0 4px 10px rgba(0,0,0,.7);}
+    .profile-copy .mini-strip{display:inline-block;padding:7px 14px;border-radius:999px;background:var(--accent);font-size:1rem;margin-bottom:12px;font-weight:900;color:var(--text);}
+    .profile-copy h2{margin:0 0 8px;font-size:1.45rem;font-weight:900;}
+    .profile-copy p{margin:0;color:var(--muted);line-height:1.7;font-size:1rem;}
+    main{padding:8px 0 42px;}
+    .section-shell{background:rgba(10,10,10,.18);border-radius:28px;padding:18px;box-shadow:var(--shadow2);backdrop-filter:blur(2px);}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:12px;flex-wrap:wrap;margin-bottom:14px;}
+    .section-head h3{margin:0;font-size:1.5rem;text-shadow:0 4px 12px rgba(0,0,0,.75);}
+    .section-head span{color:var(--muted);font-size:.95rem;}
+    .issues{display:grid;grid-template-columns:1fr;gap:12px;}
+    .issue-btn{width:100%;border:none;border-radius:20px;background:var(--panel);color:var(--text);padding:14px 15px;box-shadow:var(--shadow2);cursor:pointer;text-align:left;transition:transform .2s ease,box-shadow .2s ease,background .2s ease;}
+    .issue-btn:hover{transform:translateY(-2px);box-shadow:var(--shadow);background:var(--panel2);}
+    .issue-top{display:flex;align-items:center;justify-content:space-between;gap:14px;}
+    .issue-ribbon{display:inline-flex;align-items:center;padding:7px 11px;border-radius:999px;background:var(--accent);color:var(--text);font-weight:700;font-size:.88rem;flex:0 0 auto;}
+    .issue-title{margin:0;font-size:1rem;line-height:1.3;font-weight:700;text-shadow:0 3px 10px rgba(0,0,0,.75);flex:1 1 auto;min-width:0;}
+    .issue-chev{font-size:1.15rem;opacity:.95;transition:transform .25s ease;flex:0 0 auto;}
+    .issue-btn.active .issue-chev{transform:rotate(180deg);}
+    .issue-body{max-height:0;overflow:hidden;opacity:0;transition:max-height .34s ease,opacity .24s ease,margin-top .24s ease;}
+    .issue-body.open{opacity:1;margin-top:12px;}
+    .issue-card{background:var(--panel2);border-radius:18px;padding:15px;}
+    .issue-card h4{margin:0 0 8px;font-size:1.08rem;text-shadow:0 3px 10px rgba(0,0,0,.75);}
+    .issue-card p{margin:0;color:var(--muted);line-height:1.7;font-size:.98rem;}
+    .subissues{display:grid;grid-template-columns:1fr;gap:10px;margin-top:14px;}
+    .subissue{background:rgba(0,0,0,.18);border-radius:14px;padding:12px 12px 10px;}
+    .subissue h5{margin:0 0 6px;font-size:1rem;line-height:1.3;color:var(--text);text-shadow:0 2px 8px rgba(0,0,0,.7);}
+    .subissue p{margin:0;color:var(--muted);line-height:1.65;font-size:.95rem;}
+    footer{padding:18px 0 34px;color:var(--muted);text-align:center;text-shadow:0 2px 8px rgba(0,0,0,.45);}
+    @media (max-width:980px){.hero-grid{grid-template-columns:minmax(110px,130px) minmax(0,1fr)}.profile-card{grid-column:1 / -1}.issues{grid-template-columns:1fr;}}
+    @media (max-width:640px){body{background-attachment:scroll}.hero-grid{grid-template-columns:1fr}.logo-block{max-width:120px}.title-block{padding-top:0}.section-shell{padding:14px;border-radius:22px}.issue-top{align-items:flex-start}.issue-ribbon{margin-top:1px}}
   </style>
 </head>
 <body>
@@ -327,13 +90,11 @@
       <div class="logo-block">
         <img src="RICHARD4GOV-LARGE.png" alt="RICHARD4GOV logo">
       </div>
-
       <div class="title-block">
         <div class="title-strip">Travis John Richard for Missouri</div>
-        <h1>Building a stronger, fairer, more secure Missouri.</h1>
+        <h1> Building a stronger Missouri by moving forward together </h1>
         <p>This campaign is focused on lifting Missourians out of poverty, reducing government waste, strengthening farms and food security, modernizing schools and state services, and reforming taxes so families keep more of what they earn.</p>
       </div>
-
       <div class="profile-card">
         <img src="TRAVIS JOHN RICHARD.png" alt="Travis John Richard profile picture">
         <div class="profile-copy">
@@ -351,7 +112,6 @@
         <h3>Top 5 Priorities</h3>
         <span>Click any issue to expand.</span>
       </div>
-
       <div class="issues">
         <button class="issue-btn" type="button">
           <div class="issue-top">
@@ -363,6 +123,13 @@
             <div class="issue-card">
               <h4>Cost of Living and Taxes</h4>
               <p>I will overhaul Missouri’s tax system so the bottom 50% of Missourians pay no income taxes at all. Individuals and couples making over $1 million will pay a 10% income tax, and corporations will pay 15% on income above $1 million. I will remove taxes from food and gas, and raise taxes on eating out, tobacco, hemp, marijuana, and alcohol.</p>
+              <div class="subissues">
+                <div class="subissue"><h5>No taxes on the bottom 50%.</h5><p>Working families should not be crushed by income taxes while trying to pay for rent, food, gas, and childcare.</p></div>
+                <div class="subissue"><h5>No tax on food and gas.</h5><p>Essentials should stay affordable, because people need food and transportation before anything else.</p></div>
+                <div class="subissue"><h5>Higher taxes on millionaires.</h5><p>The highest earners and biggest corporations should contribute more when their income exceeds $1 million.</p></div>
+                <div class="subissue"><h5>Targeted vice taxes.</h5><p>Eating out, tobacco, hemp, marijuana, and alcohol should carry higher taxes to help fund public priorities.</p></div>
+                <div class="subissue"><h5>Fairer tax balance.</h5><p>My goal is to shift Missouri away from punishing working people and toward a system that protects everyday families.</p></div>
+              </div>
             </div>
           </div>
         </button>
@@ -377,6 +144,13 @@
             <div class="issue-card">
               <h4>Healthcare Access and Affordability</h4>
               <p>I will expand Medicaid for All so all Missourians have healthcare coverage. Higher earners will pay into the program on a sliding scale, with single filers and families contributing based on income to help offset the cost. My goal is to make healthcare more affordable and more accessible for every Missouri family.</p>
+              <div class="subissues">
+                <div class="subissue"><h5>Medicaid for All.</h5><p>Every Missourian should have access to healthcare coverage, no matter where they live or how much they earn.</p></div>
+                <div class="subissue"><h5>Income-based contributions.</h5><p>Higher earners should help support the system so it stays affordable for everyone else.</p></div>
+                <div class="subissue"><h5>Lower out-of-pocket costs.</h5><p>Families should not have to choose between medical care and basic needs.</p></div>
+                <div class="subissue"><h5>Rural healthcare access.</h5><p>People in small towns and rural areas need real access to doctors, hospitals, and care.</p></div>
+                <div class="subissue"><h5>Prevention and early care.</h5><p>Better access to routine care saves money and keeps people healthier in the long run.</p></div>
+              </div>
             </div>
           </div>
         </button>
@@ -391,6 +165,13 @@
             <div class="issue-card">
               <h4>Jobs, Wages, and Poverty</h4>
               <p>I will make sure Missouri working families are not left behind. By removing taxes from the bottom 50% of Missourians, expanding healthcare, and helping families keep more of what they earn, we can lift more people out of poverty and create a stronger path to stability and success.</p>
+              <div class="subissues">
+                <div class="subissue"><h5>Tax relief for workers.</h5><p>People who work hard should keep more of their paycheck and feel real progress.</p></div>
+                <div class="subissue"><h5>Poverty reduction.</h5><p>Policy should directly help families move from survival to stability.</p></div>
+                <div class="subissue"><h5>Better wages.</h5><p>Missourians need stronger earning power so their work can actually support a family.</p></div>
+                <div class="subissue"><h5>Opportunity for all regions.</h5><p>Rural and urban communities alike need better access to good jobs and local growth.</p></div>
+                <div class="subissue"><h5>Pathways forward.</h5><p>People need a clear ladder up through education, training, and fair compensation.</p></div>
+              </div>
             </div>
           </div>
         </button>
@@ -405,6 +186,13 @@
             <div class="issue-card">
               <h4>Education and Workforce Training</h4>
               <p>I will make Missouri government smaller, smarter, and more efficient by cutting waste and moving more services online. I will expand digital schools, give every Missouri child a school-issued Chromebook with cellular internet access, support free two-year college tuition or technical training in plumbing, carpentry, electrical work, and HVAC, and build community learning centers in old malls.</p>
+              <div class="subissues">
+                <div class="subissue"><h5>Digital schools.</h5><p>Use technology to expand access and make learning easier for students and families.</p></div>
+                <div class="subissue"><h5>Chromebooks for students.</h5><p>Give every child the tools to connect, learn, and complete schoolwork anywhere.</p></div>
+                <div class="subissue"><h5>Free two-year college.</h5><p>Two years of tuition support should open the door to education without debt.</p></div>
+                <div class="subissue"><h5>Trade training.</h5><p>Plumbing, carpentry, electrical work, and HVAC are strong careers that Missouri needs more of.</p></div>
+                <div class="subissue"><h5>Community learning centers.</h5><p>Old malls can be turned into places for education, computers, and in-person support.</p></div>
+              </div>
             </div>
           </div>
         </button>
@@ -419,6 +207,13 @@
             <div class="issue-card">
               <h4>Housing, Homelessness, and Utility Costs</h4>
               <p>I will protect Missouri farmers, support local agriculture, expand solar and geothermal power, lower electric bills with solar rebates and tax exemptions, expand homesteading, provide grants for wells and septic systems, reduce building code barriers for affordable homes, and strengthen shelters and mental health programs to help end homelessness.</p>
+              <div class="subissues">
+                <div class="subissue"><h5>Affordable housing.</h5><p>Missourians should be able to build and live in homes they can actually afford.</p></div>
+                <div class="subissue"><h5>Lower electric bills.</h5><p>Solar and geothermal power can help families save money every month.</p></div>
+                <div class="subissue"><h5>Homesteading support.</h5><p>Grants for wells and septic systems make rural living more possible.</p></div>
+                <div class="subissue"><h5>End homelessness.</h5><p>Shelters and mental health programs should work together to keep people housed and safe.</p></div>
+                <div class="subissue"><h5>Food and land security.</h5><p>Support productive land use and local food systems to strengthen communities.</p></div>
+              </div>
             </div>
           </div>
         </button>
@@ -430,7 +225,6 @@
 
   <script>
     const buttons = document.querySelectorAll('.issue-btn');
-
     function closeAll(except = null){
       buttons.forEach(btn => {
         if(btn === except) return;
@@ -440,7 +234,6 @@
         body.style.maxHeight = '0px';
       });
     }
-
     buttons.forEach(btn => {
       btn.addEventListener('click', () => {
         const body = btn.querySelector('.issue-body');
@@ -457,7 +250,6 @@
         body.style.maxHeight = body.scrollHeight + 'px';
       });
     });
-
     window.addEventListener('resize', () => {
       document.querySelectorAll('.issue-btn.active .issue-body').forEach(body => {
         body.style.maxHeight = body.scrollHeight + 'px';
