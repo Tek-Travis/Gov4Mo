@@ -1,261 +1,413 @@
 <!DOCTYPE html>
 <html lang="en">
-<style>
-    :root { 
-        --bg: #111111; 
-        --panel: #1d1d1d; 
-        --panel2: #242424; 
-        --text: #ffffff; 
-        --muted: #e7e7e7; 
-        --accent: #0015BC; 
-        --shadow: 0 18px 42px rgba(0,0,0,.52); 
-        --shadow2: 0 10px 28px rgba(0,0,0,.36); 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travis John Richard for Missouri</title>
+  <style>
+    :root {
+      --bg: #111111;
+      --panel: #1d1d1d;
+      --panel2: #242424;
+      --text: #ffffff;
+      --muted: #e7e7e7;
+      --accent: #0015BC;
+      --shadow: 0 18px 42px rgba(0,0,0,.52);
+      --shadow2: 0 10px 28px rgba(0,0,0,.36);
     }
 
-    body { 
-        margin: 0; 
-        font-family: Arial, Helvetica, sans-serif; 
-        color: var(--text); 
-        min-height: 100vh; 
-        background: linear-gradient(180deg, rgba(0,0,0,.58), rgba(0,0,0,.66)), 
-        url('RICHARD4GOV-LARGE2.png') center center / cover no-repeat fixed; 
+    * {
+      box-sizing: border-box;
     }
 
-    .wrap { 
-        position: relative; 
-        z-index: 1; 
-        width: min(1200px, calc(100% - 24px)); 
-        margin: 0 auto; 
+    html {
+      -webkit-text-size-adjust: 100%;
     }
 
-    header { padding: 14px 0 10px; }
-
-    .hero-grid { 
-        display: grid; 
-        grid-template-columns: minmax(110px, 150px) minmax(0, 1fr) minmax(260px, 360px); 
-        gap: 16px; 
-        align-items: start; 
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      min-height: 100vh;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.58), rgba(0,0,0,.66)),
+        url('RICHARD4GOV-LARGE2.png') center center / cover no-repeat fixed;
     }
 
-    @media (max-width: 980px) { 
-        .hero-grid { grid-template-columns: 1fr; } 
+    .wrap {
+      position: relative;
+      z-index: 1;
+      width: min(1200px, calc(100% - 24px));
+      margin: 0 auto;
     }
 
-    .logo-block { 
-        background: rgba(0,0,0,.18); 
-        backdrop-filter: blur(4px); 
-        border-radius: 22px; 
-        padding: 10px; 
-        box-shadow: var(--shadow2); 
+    header {
+      padding: 14px 0 10px;
     }
 
-    .logo-block img { 
-        display: block; 
-        width: 100%; 
-        height: auto; 
-        border-radius: 16px; 
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(110px, 150px) minmax(0, 1fr) minmax(260px, 360px);
+      gap: 16px;
+      align-items: start;
     }
 
-    .title-block { 
-        padding: 12px 0 0; 
-        text-shadow: 0 5px 14px rgba(0,0,0,.85); 
+    .logo-block,
+    .profile-card,
+    .section-shell {
+      background: rgba(0,0,0,.22);
+      border-radius: 26px;
+      box-shadow: var(--shadow);
     }
 
-    .title-strip { 
-        display: inline-flex; 
-        align-items: center; 
-        gap: 10px; 
-        padding: 8px 14px; 
-        border-radius: 999px; 
-        background: linear-gradient(90deg, var(--accent), color-mix(in srgb, var(--accent) 72%, black)); 
-        font-weight: 700; 
-        box-shadow: var(--shadow2); 
-        margin-bottom: 12px; 
+    .logo-block {
+      backdrop-filter: blur(4px);
+      padding: 10px;
     }
 
-    .title-block h1 { 
-        margin: 0; 
-        font-size: clamp(2rem, 4.8vw, 4rem); 
-        line-height: 1.05; 
-        font-weight: 900; 
+    .logo-block img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
     }
 
-    .profile-card { 
-        background: rgba(0,0,0,.22); 
-        border-radius: 26px; 
-        overflow: hidden; 
-        box-shadow: var(--shadow); 
+    .title-block {
+      padding: 12px 0 0;
+      text-shadow: 0 5px 14px rgba(0,0,0,.85);
     }
 
-    .profile-card img { 
-        width: 100%; 
-        display: block; 
-        height: auto; 
+    .title-strip {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), color-mix(in srgb, var(--accent) 72%, black));
+      font-weight: 700;
+      box-shadow: var(--shadow2);
+      margin-bottom: 12px;
     }
 
-    .profile-copy { 
-        padding: 16px 18px 18px; 
-        text-shadow: 0 4px 10px rgba(0,0,0,.7); 
+    .title-block h1 {
+      margin: 0;
+      font-size: clamp(2rem, 4.8vw, 4rem);
+      line-height: 1.05;
+      font-weight: 900;
     }
 
-    .mini-strip { 
-        display: inline-block; 
-        padding: 7px 14px; 
-        border-radius: 999px; 
-        background: var(--accent); 
-        font-size: 1rem; 
-        margin-bottom: 12px; 
-        font-weight: 900; 
+    .profile-card {
+      overflow: hidden;
     }
 
-    /* Expansion Styles */
-    .section-shell { 
-        background: rgba(10,10,10,.18); 
-        border-radius: 28px; 
-        padding: 20px; 
+    .profile-card img {
+      width: 100%;
+      display: block;
+      height: auto;
     }
 
-    .issue-btn { 
-        width: 100%; 
-        border: none; 
-        border-radius: 15px; 
-        background: var(--panel); 
-        color: white; 
-        padding: 15px; 
-        margin-top: 10px; 
-        cursor: pointer; 
-        text-align: left; 
-        font-weight: 900; 
+    .profile-copy {
+      padding: 16px 18px 18px;
+      text-shadow: 0 4px 10px rgba(0,0,0,.7);
     }
 
-    .issue-btn:hover { background: var(--panel2); }
-
-    .sub-btn { 
-        background: var(--panel2); 
-        margin-left: 30px; 
-        width: calc(100% - 30px); 
-        font-size: 0.95rem; 
-        border: 1px solid #444; 
+    .profile-copy h2 {
+      margin: 0 0 10px;
     }
 
-    /* FIXED: Fully responsive expand/collapse */
-    .content { 
-        max-height: 0; 
-        overflow: hidden; 
-        transition: max-height 0.35s ease; 
+    .mini-strip {
+      display: inline-block;
+      padding: 7px 14px;
+      border-radius: 999px;
+      background: var(--accent);
+      font-size: 1rem;
+      margin-bottom: 12px;
+      font-weight: 900;
     }
 
-    .content.open { 
-        max-height: 9999px; /* unlimited expansion, no mobile cutoff */ 
+    .section-shell {
+      background: rgba(10,10,10,.18);
+      border-radius: 28px;
+      padding: 20px;
+      margin: 20px 0;
     }
 
-    .details-area { 
-        background: rgba(0,0,0,0.5); 
-        padding: 15px; 
-        margin: 5px 0 5px 60px; 
-        border-radius: 10px; 
-        border-left: 4px solid var(--accent); 
+    .section-shell h1 {
+      margin-top: 0;
+      margin-bottom: 10px;
     }
-</style>
+
+    .issue-btn {
+      width: 100%;
+      border: none;
+      border-radius: 15px;
+      background: var(--panel);
+      color: white;
+      padding: 15px;
+      margin-top: 10px;
+      cursor: pointer;
+      text-align: left;
+      font-weight: 900;
+      font-size: 1rem;
+      line-height: 1.35;
+    }
+
+    .issue-btn:hover {
+      background: var(--panel2);
+    }
+
+    .issue-btn:focus {
+      outline: 3px solid #ffffff;
+      outline-offset: 2px;
+    }
+
+    .sub-btn {
+      background: var(--panel2);
+      margin-left: 30px;
+      width: calc(100% - 30px);
+      font-size: 0.95rem;
+      border: 1px solid #444;
+    }
+
+    .content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+    }
+
+    .content.open {
+      max-height: 9999px;
+    }
+
+    .details-area {
+      background: rgba(0,0,0,0.5);
+      padding: 15px;
+      margin: 5px 0 5px 60px;
+      border-radius: 10px;
+      border-left: 4px solid var(--accent);
+      line-height: 1.55;
+      color: var(--muted);
+    }
+
+    @media (max-width: 980px) {
+      body {
+        background-attachment: scroll;
+        background-position: center top;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .title-block {
+        padding-top: 0;
+        text-align: center;
+      }
+
+      .title-block h1 {
+        font-size: 2rem;
+      }
+
+      .profile-copy {
+        padding: 12px 14px 14px;
+      }
+
+      .section-shell {
+        padding: 14px;
+      }
+
+      .sub-btn {
+        margin-left: 0;
+        width: 100%;
+      }
+
+      .details-area {
+        margin: 6px 0;
+      }
+
+      .issue-btn {
+        padding: 14px 12px;
+      }
+    }
+  </style>
+</head>
 <body>
-    <header class="wrap">
-        <div class="hero-grid">
-            <div class="logo-block"><img src="RICHARD4GOV-LARGE.png" alt="RICHARD4GOV logo"></div>
-            <div class="title-block">
-                <div class="title-strip">Travis John Richard for Missouri</div>
-                <h1>Building A Stronger Missouri Together</h1>
-            </div>
-            <div class="profile-card">
-                <img src="TRAVIS JOHN RICHARD.png" alt="Travis John Richard profile picture">
-                <div class="profile-copy">
-                    <div class="mini-strip">Candidate Profile</div>
-                    <h2>About Travis John Richard</h2>
-                    <p>Born in St. Martinville, Louisiana, and raised in Cotter, Arkansas, and Gainesville, Missouri, Travis John Richard has called Springfield home for the past 20 years. He is committed to practical, people-first reforms that strengthen Missouri’s working families, farms, and communities.</p>
-                </div>
-            </div>
+  <header class="wrap">
+    <div class="hero-grid">
+      <div class="logo-block">
+        <img src="RICHARD4GOV-LARGE.png" alt="RICHARD4GOV logo">
+      </div>
+
+      <div class="title-block">
+        <div class="title-strip">Travis John Richard for Missouri</div>
+        <h1>Building a Stronger Missouri Together</h1>
+      </div>
+
+      <div class="profile-card">
+        <img src="TRAVIS JOHN RICHARD.png" alt="Travis John Richard profile picture">
+        <div class="profile-copy">
+          <div class="mini-strip">Candidate Profile</div>
+          <h2>About Travis John Richard</h2>
+          <p>Born in St. Martinville, Louisiana, and raised in Cotter, Arkansas, and Gainesville, Missouri, Travis John Richard has called Springfield home for the past 20 years. He is committed to practical, people-first reforms that strengthen Missouri’s working families, farms, and communities.</p>
         </div>
-    </header>
+      </div>
+    </div>
+  </header>
 
-    <main class="wrap">
-        <section class="section-shell">
-            <h1>Top 5 Priorities</h3>
-            
-            <!-- Priority 1 Block -->
-            <button class="issue-btn" onclick="toggle(this)"><h2>1. Affordability <h2></button>
-            <div class="content">
-                <button class="issue-btn sub-btn" onclick="toggle(this)">• No taxes on bottom the 50%</button>
-                <div class="content"><div class="details-area">The Working Families Tax Fairness Act provides essential relief by establishing a permanent income tax exemption for Missouri’s bottom 50%. This policy eliminates "zero-liability" earners' tax filings, funding the gap by closing loopholes and limiting capital gains for the ultra-wealthy. It prioritizes household stability over regressive consumption taxes, ensuring families keep more of their hard-earned money.</div></div>
-                <button class="issue-btn sub-btn" onclick="toggle(this)">• No taxes on food or gas</button>
-                <div class="content"><div class="details-area">Eliminating state and local sales taxes on groceries and fuel provides immediate, essential relief for Missouri families. By treating these necessities as non-taxable, we end regressive policies that disproportionately burden those living paycheck-to-paycheck. We will fund this common-sense reform by closing corporate tax loopholes and protecting vital community services through dedicated infrastructure funding.</div></div>
-                <button class="issue-btn sub-btn" onclick="toggle(this)">• Economic Fairness and Worker Support</button>
-                <div class="content"><div class="details-area">This fair tax policy sets a 10% rate for the Top 1% and billionaires, along with a 15% corporate tax rate, to help fund essential public services. By fully exempting the bottom 50% from income taxes and giving relief to the middle class, we shift the burden to those most able to pay and create a stronger path out of poverty for working families. In addition, I support a $15.00 living wage and a 4-day standard workweek, 6 weeks of paid sick leave, and 3 months of paid maternity leave, giving workers more time to rest, care for their families, and stay healthy without losing pay.</div></div>
-                <button class="issue-btn sub-btn" onclick="toggle(this)">• Fairer tax burden</button>
-                <div class="content"><div class="details-area">To build a thriving Missouri, this plan establishes a 10% tax rate for the Top 1% and billionaires, alongside a 15% corporate rate. By exempting the bottom 50% from income taxes and providing targeted middle-class relief, we shift the fiscal burden to those best able to contribute, effectively lifting working families out of poverty..</div></div>
-                <button class="issue-btn sub-btn" onclick="toggle(this)">• Expanding the middle class</button>
-                <div class="content"><div class="details-area">The Missouri Home Stability & Independence Fund grows our middle class by investing directly in homeowners. Through grants for solar installations, well repairs, and energy-efficiency upgrades, we slash monthly living costs for families. Combined with first-time homebuyer assistance, this policy builds lasting wealth, promotes self-reliance, and strengthens the foundation of every Missouri community.</div></div>
-            </div>
-            
-            <!-- Priority 1 Block -->
-            <button class="issue-btn" onclick="toggle(this)"><h2>2.  Medicaid for All <h2></button>
-            <div class="content">
-                <button class="issue-btn sub-btn" onclick="toggle(this)">• Universal, Zero-Cost Access for the Bottom 50%</button>
-                <div class="content"><div class="details-area">The program provides full medical coverage with no deductibles or co-pays for the bottom 50% of income earners, eliminating the "poverty trap" where individuals avoid necessary preventative care due to cost.</div></div>
-                <button class="issue-btn sub-btn" onclick="toggle(this)">• Comprehensive "Whole-Health" Coverage</button>
-                <div class="content"><div class="details-area">Unlike traditional plans, Medicaid for All mandates the inclusion of vision, dental, hearing, and mental health services—including the provision of essential hardware like eyeglasses, hearing aids, and therapy—as standard covered benefits, along with full coverage for depression treatment.</div></div>
-                <button class="issue-btn sub-btn" onclick="toggle(this)">• Progressive Income-Based Contributions</button>
-                <div class="content"><div class="details-area">To ensure long-term viability, the top 10% of income earners contribute via an income-related co-pay structure. This ensures that those with the highest ability to pay support the system that sustains a healthy, productive workforce for the entire state.</div></div>
-                <button class="issue-btn sub-btn" onclick="toggle(this)">• Corporate and Multi-Layered Funding</button>
-                <div class="content"><div class="details-area">The system is financed through a stable blend of federal healthcare grants, state budget allocations, and a dedicated 15% corporate contribution rate. This shifts the financial burden away from household premiums and onto the entities that benefit most from a healthy, stable economy.</div></div>
-                <button class="issue-btn sub-btn" onclick="toggle(this)">• Administrative Consolidation</button>
-                <div class="content"><div class="details-area">By folding existing private insurance overhead and fragmented billing systems into the unified Medicaid for All administration, the state will achieve massive cost savings. These funds are redirected entirely to patient care, doctor compensation, and frontline medical services.</div></div>
-            </div>
-            <!-- Priority 1 Block -->
-            <button class="issue-btn" onclick="toggle(this)"><h2>3. Housing and Energy <h2></button>
-            <div class="content">
-                <button class="issue-btn sub-btn" onclick="toggle(this)">• Homeownership Protection</button>
-                <div class="content"><div class="details-area">I will make it illegal for investors and large corporate landlords to buy and hold single-family homes. Homes should belong to families, not Wall Street. Corporate ownership drives up prices and reduces opportunity, so my policy protects local buyers and keeps neighborhoods built around people, not speculation.</div></div>
-                <button class="issue-btn sub-btn" onclick="toggle(this)">• Affordable Home Loans</button>
-                <div class="content"><div class="details-area">I will create low-interest home loans backed by state treasury bonds to help more Missourians buy homes. These loans will make homeownership more reachable for working families, first-time buyers, and people who have been priced out of the market. Building equity is one of the strongest ways to grow the middle class.</div></div>
-                <button class="issue-btn sub-btn" onclick="toggle(this)">• Rent Limits and Tenant Stability</button>
-                <div class="content"><div class="details-area">I support rent limits for low-income renters, people with disabilities, and seniors over 65. No one living on a fixed income should be forced out of their home because rent keeps rising faster than their paycheck or benefits. This policy gives vulnerable Missourians stability and protects them from displacement.</div></div>
-                <button class="issue-btn sub-btn" onclick="toggle(this)">• Clean Power Modernization</button>
-                <div class="content"><div class="details-area">I will modernize Missouri’s power grid with geothermal energy and solar farms. A stronger grid means more reliable power, lower pollution, and better long-term energy security. By investing in clean energy now, we can reduce costs for families while creating a more sustainable future for the entire state.</div></div>
-                <button class="issue-btn sub-btn" onclick="toggle(this)">• Energy Grants and Efficiency</button>
-                <div class="content"><div class="details-area">I will expand grants for water wells and solar system installations, especially for rural and low-income homeowners. I will also extend energy-saving programs that help families reduce monthly utility bills. These investments lower long-term costs, improve independence, and make homes more affordable to live in year-round.</div></div>
-            </div>
-            <!-- Priority 1 Block -->
-            <button class="issue-btn" onclick="toggle(this)"><h2>4. Government and Education <h2></button>
-            <div class="content">
-                <button class="issue-btn sub-btn" onclick="toggle(this)">• Digital Government Services</button>
-                <div class="content"><div class="details-area">Missouri should move major government services into one secure digital portal so residents can handle tasks faster, with less paperwork and fewer delays. This includes voter registration, vehicle tags, boat and RV registrations, license renewals, and other common transactions. A modern system saves time, reduces waste, and makes government easier for everyone to use.</div></div>
-                <button class="issue-btn sub-btn" onclick="toggle(this)">• Online Schooling for Missouri Students</button>
-                <div class="content"><div class="details-area">Missouri education should be fully online and fully accredited so students across the state can learn from home or on their own schedule. A strong online system gives families more flexibility while keeping teacher support, testing, and graduation standards in place. This creates a modern education model that works for rural and urban communities alike.</div></div>
-                <button class="issue-btn sub-btn" onclick="toggle(this)">• Library Learning Centers</button>
-                <div class="content"><div class="details-area">Libraries should be expanded into learning centers across Missouri with high-speed internet, computers, and hands-on educational classes. These centers can support students, job seekers, and adults who need help with technology or schoolwork. They should become community hubs for learning, training, and public access.</div></div>
-                <button class="issue-btn sub-btn" onclick="toggle(this)">•  GED and Workforce Training</button>
-                <div class="content"><div class="details-area">Missourians should be able to earn their GED online and move directly into better opportunities. I will offer two years of free college and two years of free trade school to build a stronger workforce. We need more plumbers, carpenters, electricians, and HVAC workers to meet the needs of Missouri families and businesses.</div></div>
-                <button class="issue-btn sub-btn" onclick="toggle(this)">• Education Reform and Efficiency</button>
-                <div class="content"><div class="details-area">Missouri should remove wasteful school boards and outdated systems that take money and time away from students. The goal is a simpler, more direct education structure that focuses on learning instead of bureaucracy. Resources should go to classrooms, students, and teachers, not extra layers of administration.</div></div>
-            </div>
-            <!-- Priority 1 Block -->
-            <button class="issue-btn" onclick="toggle(this)"><h2>5. Lifting Families out of Poverty <h2></button>
-            <div class="content">
-                <button class="issue-btn sub-btn" onclick="toggle(this)">• Emergency Family Relief Fund</button>
-                <div class="content"><div class="details-area">Missouri should create a 7-day emergency fund to help families keep rent paid and lights on during a crisis. If a household loses income, suffers an injury, or faces the death of a spouse or loved one, OCAC support should cover rent and electric for up to 90 days to prevent deeper poverty.</div></div>
-                <button class="issue-btn sub-btn" onclick="toggle(this)">• Housing for the Homeless</button>
-                <div class="content"><div class="details-area">Lifting families out of poverty means no one is left behind. Homeless shelters should be turned into true temporary stays, with a direct path into safe and secure housing, including group homes, rentals, or permanent homes. The goal is not just shelter, but stability, dignity, and a real chance to get back on their feet.</div></div>
-                <button class="issue-btn sub-btn" onclick="toggle(this)">• Mental Health and Rural Care</button>
-                <div class="content"><div class="details-area">To keep people from falling into poverty, Missouri must expand mental health services, rural hospitals, and local clinics. Too many families are pushed into crisis because they cannot get care close to home. Stronger health access means earlier treatment, fewer emergencies, and better long-term stability for working people.</div></div>
-                <button class="issue-btn sub-btn" onclick="toggle(this)">• Tornado and Disaster Protection</button>
-                <div class="content"><div class="details-area">Missouri needs stronger disaster relief funds and grants to help families and communities recover after tornadoes, floods, or fires. This should include tornado shelter funding and relocation help for families living in flood zones. No family should lose everything and be left without a safe place to restart.</div></div>
-                <button class="issue-btn sub-btn" onclick="toggle(this)">• Prevention and Stability</button>
-                <div class="content"><div class="details-area">The best way to fight poverty is to prevent it before it starts. Missouri should combine emergency aid, housing support, and disaster recovery with long-term stability programs that help families stay secure. When we protect people during their hardest moments, we build stronger communities and a safer future for everyone.</div></div>
-            </div>
+  <main class="wrap">
+    <section class="section-shell">
+      <h1>Top 5 Priorities</h1>
 
-    <script>
-        function toggle(btn) {
-            btn.nextElementSibling.classList.toggle('open');
-        }
-    </script>
+      <button class="issue-btn" onclick="toggle(this)" aria-expanded="false">1. Affordability</button>
+      <div class="content">
+        <button class="issue-btn sub-btn" onclick="toggle(this)" aria-expanded="false">• No taxes on the bottom 50%</button>
+        <div class="content">
+          <div class="details-area">The Working Families Tax Fairness Act provides essential relief by establishing a permanent income tax exemption for Missouri’s bottom 50%. This policy eliminates zero-liability earners' tax filings, funding the gap by closing loopholes and limiting capital gains for the ultra-wealthy. It prioritizes household stability over regressive consumption taxes, ensuring families keep more of their hard-earned money.</div>
+        </div>
+
+        <button class="issue-btn sub-btn" onclick="toggle(this)" aria-expanded="false">• No taxes on food or gas</button>
+        <div class="content">
+          <div class="details-area">Eliminating state and local sales taxes on groceries and fuel provides immediate, essential relief for Missouri families. By treating these necessities as non-taxable, we end regressive policies that disproportionately burden those living paycheck-to-paycheck. We will fund this common-sense reform by closing corporate tax loopholes and protecting vital community services through dedicated infrastructure funding.</div>
+        </div>
+
+        <button class="issue-btn sub-btn" onclick="toggle(this)" aria-expanded="false">• Economic Fairness and Worker Support</button>
+        <div class="content">
+          <div class="details-area">This fair tax policy sets a 10% rate for the Top 1% and billionaires, along with a 15% corporate tax rate, to help fund essential public services. By fully exempting the bottom 50% from income taxes and giving relief to the middle class, we shift the burden to those most able to pay and create a stronger path out of poverty for working families. In addition, I support a $15.00 living wage and a 4-day standard workweek, 6 weeks of paid sick leave, and 3 months of paid maternity leave, giving workers more time to rest, care for their families, and stay healthy without losing pay.</div>
+        </div>
+
+        <button class="issue-btn sub-btn" onclick="toggle(this)" aria-expanded="false">• Fairer tax burden</button>
+        <div class="content">
+          <div class="details-area">To build a thriving Missouri, this plan establishes a 10% tax rate for the Top 1% and billionaires, alongside a 15% corporate rate. By exempting the bottom 50% from income taxes and providing targeted middle-class relief, we shift the fiscal burden to those best able to contribute, effectively lifting working families out of poverty.</div>
+        </div>
+
+        <button class="issue-btn sub-btn" onclick="toggle(this)" aria-expanded="false">• Expanding the middle class</button>
+        <div class="content">
+          <div class="details-area">The Missouri Home Stability & Independence Fund grows our middle class by investing directly in homeowners. Through grants for solar installations, well repairs, and energy-efficiency upgrades, we slash monthly living costs for families. Combined with first-time homebuyer assistance, this policy builds lasting wealth, promotes self-reliance, and strengthens the foundation of every Missouri community.</div>
+        </div>
+      </div>
+
+      <button class="issue-btn" onclick="toggle(this)" aria-expanded="false">2. Medicaid for All</button>
+      <div class="content">
+        <button class="issue-btn sub-btn" onclick="toggle(this)" aria-expanded="false">• Universal, Zero-Cost Access for the Bottom 50%</button>
+        <div class="content">
+          <div class="details-area">The program provides full medical coverage with no deductibles or co-pays for the bottom 50% of income earners, eliminating the poverty trap where individuals avoid necessary preventative care due to cost.</div>
+        </div>
+
+        <button class="issue-btn sub-btn" onclick="toggle(this)" aria-expanded="false">• Comprehensive "Whole-Health" Coverage</button>
+        <div class="content">
+          <div class="details-area">Unlike traditional plans, Medicaid for All mandates the inclusion of vision, dental, hearing, and mental health services—including the provision of essential hardware like eyeglasses, hearing aids, and therapy—as standard covered benefits, along with full coverage for depression treatment.</div>
+        </div>
+
+        <button class="issue-btn sub-btn" onclick="toggle(this)" aria-expanded="false">• Progressive Income-Based Contributions</button>
+        <div class="content">
+          <div class="details-area">To ensure long-term viability, the top 10% of income earners contribute via an income-related co-pay structure. This ensures that those with the highest ability to pay support the system that sustains a healthy, productive workforce for the entire state.</div>
+        </div>
+
+        <button class="issue-btn sub-btn" onclick="toggle(this)" aria-expanded="false">• Corporate and Multi-Layered Funding</button>
+        <div class="content">
+          <div class="details-area">The system is financed through a stable blend of federal healthcare grants, state budget allocations, and a dedicated 15% corporate contribution rate. This shifts the financial burden away from household premiums and onto the entities that benefit most from a healthy, stable economy.</div>
+        </div>
+
+        <button class="issue-btn sub-btn" onclick="toggle(this)" aria-expanded="false">• Administrative Consolidation</button>
+        <div class="content">
+          <div class="details-area">By folding existing private insurance overhead and fragmented billing systems into the unified Medicaid for All administration, the state will achieve massive cost savings. These funds are redirected entirely to patient care, doctor compensation, and frontline medical services.</div>
+        </div>
+      </div>
+
+      <button class="issue-btn" onclick="toggle(this)" aria-expanded="false">3. Housing and Energy</button>
+      <div class="content">
+        <button class="issue-btn sub-btn" onclick="toggle(this)" aria-expanded="false">• Homeownership Protection</button>
+        <div class="content">
+          <div class="details-area">I will make it illegal for investors and large corporate landlords to buy and hold single-family homes. Homes should belong to families, not Wall Street. Corporate ownership drives up prices and reduces opportunity, so my policy protects local buyers and keeps neighborhoods built around people, not speculation.</div>
+        </div>
+
+        <button class="issue-btn sub-btn" onclick="toggle(this)" aria-expanded="false">• Affordable Home Loans</button>
+        <div class="content">
+          <div class="details-area">I will create low-interest home loans backed by state treasury bonds to help more Missourians buy homes. These loans will make homeownership more reachable for working families, first-time buyers, and people who have been priced out of the market. Building equity is one of the strongest ways to grow the middle class.</div>
+        </div>
+
+        <button class="issue-btn sub-btn" onclick="toggle(this)" aria-expanded="false">• Rent Limits and Tenant Stability</button>
+        <div class="content">
+          <div class="details-area">I support rent limits for low-income renters, people with disabilities, and seniors over 65. No one living on a fixed income should be forced out of their home because rent keeps rising faster than their paycheck or benefits. This policy gives vulnerable Missourians stability and protects them from displacement.</div>
+        </div>
+
+        <button class="issue-btn sub-btn" onclick="toggle(this)" aria-expanded="false">• Clean Power Modernization</button>
+        <div class="content">
+          <div class="details-area">I will modernize Missouri’s power grid with geothermal energy and solar farms. A stronger grid means more reliable power, lower pollution, and better long-term energy security. By investing in clean energy now, we can reduce costs for families while creating a more sustainable future for the entire state.</div>
+        </div>
+
+        <button class="issue-btn sub-btn" onclick="toggle(this)" aria-expanded="false">• Energy Grants and Efficiency</button>
+        <div class="content">
+          <div class="details-area">I will expand grants for water wells and solar system installations, especially for rural and low-income homeowners. I will also extend energy-saving programs that help families reduce monthly utility bills. These investments lower long-term costs, improve independence, and make homes more affordable to live in year-round.</div>
+        </div>
+      </div>
+
+      <button class="issue-btn" onclick="toggle(this)" aria-expanded="false">4. Government and Education</button>
+      <div class="content">
+        <button class="issue-btn sub-btn" onclick="toggle(this)" aria-expanded="false">• Digital Government Services</button>
+        <div class="content">
+          <div class="details-area">Missouri should move major government services into one secure digital portal so residents can handle tasks faster, with less paperwork and fewer delays. This includes voter registration, vehicle tags, boat and RV registrations, license renewals, and other common transactions. A modern system saves time, reduces waste, and makes government easier for everyone to use.</div>
+        </div>
+
+        <button class="issue-btn sub-btn" onclick="toggle(this)" aria-expanded="false">• Online Schooling for Missouri Students</button>
+        <div class="content">
+          <div class="details-area">Missouri education should be fully online and fully accredited so students across the state can learn from home or on their own schedule. A strong online system gives families more flexibility while keeping teacher support, testing, and graduation standards in place. This creates a modern education model that works for rural and urban communities alike.</div>
+        </div>
+
+        <button class="issue-btn sub-btn" onclick="toggle(this)" aria-expanded="false">• Library Learning Centers</button>
+        <div class="content">
+          <div class="details-area">Libraries should be expanded into learning centers across Missouri with high-speed internet, computers, and hands-on educational classes. These centers can support students, job seekers, and adults who need help with technology or schoolwork. They should become community hubs for learning, training, and public access.</div>
+        </div>
+
+        <button class="issue-btn sub-btn" onclick="toggle(this)" aria-expanded="false">• GED and Workforce Training</button>
+        <div class="content">
+          <div class="details-area">Missourians should be able to earn their GED online and move directly into better opportunities. I will offer two years of free college and two years of free trade school to build a stronger workforce. We need more plumbers, carpenters, electricians, and HVAC workers to meet the needs of Missouri families and businesses.</div>
+        </div>
+
+        <button class="issue-btn sub-btn" onclick="toggle(this)" aria-expanded="false">• Education Reform and Efficiency</button>
+        <div class="content">
+          <div class="details-area">Missouri should remove wasteful school boards and outdated systems that take money and time away from students. The goal is a simpler, more direct education structure that focuses on learning instead of bureaucracy. Resources should go to classrooms, students, and teachers, not extra layers of administration.</div>
+        </div>
+      </div>
+
+      <button class="issue-btn" onclick="toggle(this)" aria-expanded="false">5. Lifting Families out of Poverty</button>
+      <div class="content">
+        <button class="issue-btn sub-btn" onclick="toggle(this)" aria-expanded="false">• Emergency Family Relief Fund</button>
+        <div class="content">
+          <div class="details-area">Missouri should create a 7-day emergency fund to help families keep rent paid and lights on during a crisis. If a household loses income, suffers an injury, or faces the death of a spouse or loved one, OCAC support should cover rent and electric for up to 90 days to prevent deeper poverty.</div>
+        </div>
+
+        <button class="issue-btn sub-btn" onclick="toggle(this)" aria-expanded="false">• Housing for the Homeless</button>
+        <div class="content">
+          <div class="details-area">Lifting families out of poverty means no one is left behind. Homeless shelters should be turned into true temporary stays, with a direct path into safe and secure housing, including group homes, rentals, or permanent homes. The goal is not just shelter, but stability, dignity, and a real chance to get back on their feet.</div>
+        </div>
+
+        <button class="issue-btn sub-btn" onclick="toggle(this)" aria-expanded="false">• Mental Health and Rural Care</button>
+        <div class="content">
+          <div class="details-area">To keep people from falling into poverty, Missouri must expand mental health services, rural hospitals, and local clinics. Too many families are pushed into crisis because they cannot get care close to home. Stronger health access means earlier treatment, fewer emergencies, and better long-term stability for working people.</div>
+        </div>
+
+        <button class="issue-btn sub-btn" onclick="toggle(this)" aria-expanded="false">• Tornado and Disaster Protection</button>
+        <div class="content">
+          <div class="details-area">Missouri needs stronger disaster relief funds and grants to help families and communities recover after tornadoes, floods, or fires. This should include tornado shelter funding and relocation help for families living in flood zones. No family should lose everything and be left without a safe place to restart.</div>
+        </div>
+
+        <button class="issue-btn sub-btn" onclick="toggle(this)" aria-expanded="false">• Prevention and Stability</button>
+        <div class="content">
+          <div class="details-area">The best way to fight poverty is to prevent it before it starts. Missouri should combine emergency aid, housing support, and disaster recovery with long-term stability programs that help families stay secure. When we protect people during their hardest moments, we build stronger communities and a safer future for everyone.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    function toggle(btn) {
+      const panel = btn.nextElementSibling;
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      panel.classList.toggle('open');
+    }
+  </script>
 </body>
 </html>
