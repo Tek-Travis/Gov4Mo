@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campaign Materials - Travis John Richard for Missouri Governor</title>
+  <style>
+    :root {
+      --bg: #111111;
+      --panel: #1d1d1d;
+      --panel2: #242424;
+      --text: #ffffff;
+      --muted: #e7e7e7;
+      --accent: #0015BC;
+      --shadow: 0 18px 42px rgba(0,0,0,.52);
+      --shadow2: 0 10px 28px rgba(0,0,0,.36);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      min-height: 100vh;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.58), rgba(0,0,0,.66)),
+        url('RICHARD4GOV-LARGE2.png') center center / cover no-repeat fixed;
+    }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      width: min(1200px, calc(100% - 24px));
+      margin: 0 auto;
+      padding-bottom: 60px;
+    }
+
+    header {
+      padding: 40px 0 20px;
+      text-align: center;
+    }
+
+    .title-strip {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), color-mix(in srgb, var(--accent) 72%, black));
+      font-weight: 700;
+      box-shadow: var(--shadow2);
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 4.8vw, 3rem);
+      line-height: 1.05;
+      font-weight: 900;
+      text-shadow: 0 5px 14px rgba(0,0,0,.85);
+    }
+
+    .section-shell {
+      background: rgba(10,10,10,.18);
+      backdrop-filter: blur(8px);
+      border-radius: 28px;
+      padding: 30px;
+      margin: 20px 0;
+      box-shadow: var(--shadow);
+    }
+
+    .assets-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 20px;
+    }
+
+    .asset-card {
+      background: var(--panel);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow2);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .asset-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+      background: var(--panel2);
+    }
+
+    .thumb-wrap {
+      width: 100%;
+      height: 200px;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .thumb-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 10px;
+    }
+
+    .pdf-icon {
+      font-size: 48px;
+      font-weight: 900;
+      color: var(--accent);
+    }
+
+    .asset-info {
+      padding: 16px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .asset-info h3 {
+      margin: 0 0 12px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    .action-btn {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background: var(--accent);
+      color: white;
+      text-decoration: none;
+      text-align: center;
+      border-radius: 12px;
+      font-weight: 900;
+      font-size: 0.9rem;
+      transition: opacity 0.2s;
+    }
+
+    .action-btn:hover {
+      opacity: 0.9;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 24px;
+      background: rgba(255,255,255,0.1);
+      color: white;
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: 700;
+      transition: background 0.2s;
+    }
+
+    .back-btn:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    @media (max-width: 600px) {
+      .assets-grid {
+        grid-template-columns: 1fr;
+      }
+      .section-shell {
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="title-strip">Official Campaign & Recruitment Materials</div>
+      <h1>Campaign Resources</h1>
+      <a href="index.html" class="back-btn">← Back to Homepage</a>
+    </header>
+
+    <main class="section-shell">
+      <div class="assets-grid">
+        <!-- Banner -->
+        <div class="asset-card">
+          <div class="thumb-wrap">
+            <img src="Assets/BANNER 36X72 2-1 Aspect Ratio.jpg" alt="Campaign Banner">
+          </div>
+          <div class="asset-info">
+            <h3>Campaign Banner (36x72)</h3>
+            <a href="Assets/BANNER 36X72 2-1 Aspect Ratio.jpg" target="_blank" class="action-btn">View / Download</a>
+          </div>
+        </div>
+
+        <!-- Poster -->
+        <div class="asset-card">
+          <div class="thumb-wrap">
+            <img src="Assets/POSTER SIGN 48X36 3-4 Aspect Ratio.jpg" alt="Campaign Poster">
+          </div>
+          <div class="asset-info">
+            <h3>Campaign Poster (48x36)</h3>
+            <a href="Assets/POSTER SIGN 48X36 3-4 Aspect Ratio.jpg" target="_blank" class="action-btn">View / Download</a>
+          </div>
+        </div>
+
+        <!-- Yard Sign -->
+        <div class="asset-card">
+          <div class="thumb-wrap">
+            <img src="Assets/YARD SIGN 18-24-3-4 Aspectratio .jpg" alt="Yard Sign">
+          </div>
+          <div class="asset-info">
+            <h3>Yard Sign (18x24)</h3>
+            <a href="Assets/YARD SIGN 18-24-3-4 Aspectratio .jpg" target="_blank" class="action-btn">View / Download</a>
+          </div>
+        </div>
+
+        <!-- Flyer -->
+        <div class="asset-card">
+          <div class="thumb-wrap">
+            <img src="Assets/FLYER.png" alt="Campaign Flyer">
+          </div>
+          <div class="asset-info">
+            <h3>Recruitment Flyer</h3>
+            <a href="Assets/FLYER.png" target="_blank" class="action-btn">View / Download</a>
+          </div>
+        </div>
+
+        <!-- Business Card -->
+        <div class="asset-card">
+          <div class="thumb-wrap">
+            <img src="Assets/Business Card.png" alt="Business Card">
+          </div>
+          <div class="asset-info">
+            <h3>Campaign Business Card</h3>
+            <a href="Assets/Business Card.png" target="_blank" class="action-btn">View / Download</a>
+          </div>
+        </div>
+
+        <!-- QR Code -->
+        <div class="asset-card">
+          <div class="thumb-wrap">
+            <img src="Assets/QR CODE.png" alt="QR Code">
+          </div>
+          <div class="asset-info">
+            <h3>Campaign QR Code</h3>
+            <a href="Assets/QR CODE.png" target="_blank" class="action-btn">View / Download</a>
+          </div>
+        </div>
+
+        <!-- PDF Document -->
+        <div class="asset-card">
+          <div class="thumb-wrap">
+            <div class="pdf-icon">PDF</div>
+          </div>
+          <div class="asset-info">
+            <h3>Campaign Platform Document</h3>
+            <a href="Assets/TRAVIS JOHN RICHARD for MISSOURI.pdf" target="_blank" class="action-btn">Read / Download</a>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
